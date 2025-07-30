@@ -52,95 +52,77 @@ financial-statement-explainer-bot/
 ## Getting Started
 
 1️⃣ Clone the repo
-
+```
 git clone https://github.com/your-username/financial-statement-explainer-bot.git
 cd financial-statement-explainer-bot
-
+```
 2️⃣ Create and activate virtual environment
-
+```
 python -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
-
+```
 3️⃣ Install dependencies
-
+```
 pip install -r requirements.txt
-
+```
 4️⃣ Set up environment variables
-
 Create a .env file:
-
+```
 OPENAI_API_KEY=your_api_key_here
-
+```
 5️⃣ Run the application
 
 Option 1: Streamlit UI
-
+```
 streamlit run ui/streamlit_app.py
-
+```
 Option 2: FastAPI backend
-
+```
 uvicorn app.main:app --reload
+```
+## How It Works
 
-🧠 How It Works
+- Parse PDFs using pdfplumber or PyMuPDF.
 
-Parse PDFs using pdfplumber or PyMuPDF.
+- Chunk text into smaller segments with overlap.
 
-Chunk text into smaller segments with overlap.
+- Generate embeddings using OpenAI's text-embedding-3-small (or Hugging Face models).
 
-Generate embeddings using OpenAI's text-embedding-3-small (or Hugging Face models).
+- Store vectors in FAISS (local) or Pinecone/Azure Cognitive Search.
 
-Store vectors in FAISS (local) or Pinecone/Azure Cognitive Search.
+- On query:
 
-On query:
+    - Embed query and search top-k relevant chunks.
 
-Embed query and search top-k relevant chunks.
+    - Pass retrieved chunks to GPT (e.g., gpt-4o-mini) with context.
 
-Pass retrieved chunks to GPT (e.g., gpt-4o-mini) with context.
-
-Return grounded answer with sources.
-
-🏗️ Architecture Diagram
+    - Return grounded answer with sources.
 
 
+## Tech Stack
 
-Flow:
+- **LLM**: OpenAI GPT (gpt-4o-mini) / Hugging Face
 
-User uploads PDF → Parser extracts text.
+- **Vector Store**: FAISS / Pinecone / Azure Cognitive Search
 
-Text is chunked & embedded.
+- **UI**: Streamlit / FastAPI
 
-Embeddings stored in Vector DB (FAISS/Pinecone/Azure).
+- **PDF Parsing**: pdfplumber / PyMuPDF
 
-User query → Embed query → Retrieve top-k chunks.
+- **Caching**: Redis (optional)
 
-Chunks + query sent to GPT → Answer generated with context.
+## Future Enhancements
 
-Answer displayed in Streamlit/FastAPI UI.
+- Add visualization of financial metrics.
 
-📦 Tech Stack
+- Multi-document query support.
 
-LLM: OpenAI GPT (gpt-4o-mini) / Hugging Face
+- Document version management.
 
-Vector Store: FAISS / Pinecone / Azure Cognitive Search
+- Role-based authentication.
 
-UI: Streamlit / FastAPI
-
-PDF Parsing: pdfplumber / PyMuPDF
-
-Caching: Redis (optional)
-
-🌟 Future Enhancements
-
-Add visualization of financial metrics.
-
-Multi-document query support.
-
-Document version management.
-
-Role-based authentication.
-
-🤝 Contributing
+## Contributing
 
 Fork the repository
 
@@ -152,10 +134,10 @@ Push to the branch (git push origin feature-name)
 
 Open a Pull Request
 
-📜 License
+## License
 
 MIT License
 
-✉️ Contact
+## Contact
 
 For queries or suggestions, feel free to reach out!
