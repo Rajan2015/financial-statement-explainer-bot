@@ -1,25 +1,25 @@
-📊 Financial Statement Explainer Bot
+# 📊 Financial Statement Explainer Bot
 
 The Financial Statement Explainer Bot is a Retrieval-Augmented Generation (RAG) based application that helps users query financial statements and annual reports using natural language. It extracts, vectorizes, and indexes PDF documents and uses an LLM (GPT) to answer questions based on the document context.
 
-🚀 Features
+## Features
 
-Upload and parse financial statement PDFs.
+- Upload and parse financial statement PDFs.
 
-Chunk and embed documents for semantic search.
+- Chunk and embed documents for semantic search.
 
-Query using natural language and receive grounded responses.
+- Query using natural language and receive grounded responses.
 
-Hallucination control using strict context-based prompts.
+- Hallucination control using strict context-based prompts.
 
-Cache responses for faster performance.
+- Cache responses for faster performance.
 
-Works locally using FAISS or integrates with external Vector DBs (Pinecone, Azure Cognitive Search).
+- Works locally using FAISS or integrates with external Vector DBs (Pinecone, Azure Cognitive Search).
 
-Interactive UI with Streamlit (or optional FastAPI backend).
+- Interactive UI with Streamlit (or optional FastAPI backend).
 
 📂 Repository Structure
-
+```
 financial-statement-explainer-bot/
 │
 ├── app/
@@ -47,8 +47,9 @@ financial-statement-explainer-bot/
 ├── requirements.txt              # Dependencies
 ├── .env                          # API keys (OpenAI/HF)
 └── README.md                     # This file
+```
 
-⚡ Getting Started
+## Getting Started
 
 1️⃣ Clone the repo
 
